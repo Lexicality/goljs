@@ -1,0 +1,9 @@
+ol,
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+#gol {
+    text-align: center;
+}
