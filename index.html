@@ -2,16 +2,24 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Oi oi</title>
+        <title>Game of life test</title>
         <link rel="stylesheet" href="index.css" type="text/css" />
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
         <script type="text/javascript" src="bower_components/lodash/dist/lodash.js"></script>
     </head>
     <body>
         <header>
-            <h1>Gay of life</h1>
+            <h1>Game of life</h1>
         </header>
         <main id="site"></main>
+        <aside id="controls">
+            <button id="playpause">Start</button>
+            <button id="step">Step</button>
+            <label>
+                Step speed
+                <input id="playspeed" type="number" min="100" value=3000 />
+            </label>
+        </aside>
         <script type="text/javascript" src="index.js"></script>
     </body>
 </html>

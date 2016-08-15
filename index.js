@@ -120,7 +120,7 @@ for (let y = 0; y < maxy; y++) {
     gol.append(line);
 }
 
-window.setInterval(function() {
+function step() {
     if (!changed.size) {
         return;
     }
@@ -139,4 +139,23 @@ window.setInterval(function() {
     for (let cell of toCheck) {
         cell.commit();
     }
-}, 2000);
+}
+
+const playspeed = $('#playspeed');
+const playpause = $('#playpause');
+let intervalKey;
+playpause.on('click', () => {
+    if (intervalKey) {
+        window.clearInterval(intervalKey);
+        intervalKey = null;
+        playspeed.prop('disabled', false);
+        playpause.text('Start');
+    } else {
+        intervalKey = window.setInterval(step, playspeed.val());
+        playspeed.prop('disabled', true);
+        step();
+        playpause.text('Stop');
+    }
+})
+
+$('#step').on('click', step);
